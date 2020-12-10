@@ -2,7 +2,7 @@
 
 ## Description
 
-[![Build Status](https://travis-ci.com/lotusnoir/ansible-apps_adminer.svg?branch=master)](https://travis-ci.com/lotusnoir/ansible-apps_adminer)[![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)[![Ansible Role](https://img.shields.io/badge/ansible%20role-apps__adminer-blue)](https://galaxy.ansible.com/lotusnoir/ansible-apps_adminer/)[![GitHub tag](https://img.shields.io/badge/version-latest-blue)](https://github.com/lotusnoir/ansible-apps_adminer/tags)
+[![Build Status](https://travis-ci.com/lotusnoir/ansible-apps_adminer.svg?branch=master)](https://travis-ci.com/lotusnoir/ansible-apps_adminer)[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen)](https://opensource.org/licenses/Apache-2.0)[![Ansible Role](https://img.shields.io/badge/ansible%20role-apps__adminer-blue)](https://galaxy.ansible.com/lotusnoir/ansible-apps_adminer/)[![GitHub tag](https://img.shields.io/badge/version-latest-blue)](https://github.com/lotusnoir/ansible-apps_adminer/tags)
 
 ## Requierements
 
