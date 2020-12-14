@@ -1,0 +1,5 @@
+---
+adminer_packages:
+  - php-fpm
+  - php-mysql
+  - php-pgsql

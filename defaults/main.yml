@@ -1,9 +1,6 @@
 ---
+adminer_version: '4.7.8'
+adminer_src_url: 'https://github.com/vrana/adminer/releases/download/v{{ adminer_version }}/adminer-{{ adminer_version }}.php'
 adminer_owner: www-data
 adminer_group: www-data
-adminer_packages:
-  - php-fpm
-  - php-mysql
-  - php-pgsql
 adminer_install_dir:  "/var/www/adminer/"
-adminer_src_url: http://www.adminer.org/latest.php
