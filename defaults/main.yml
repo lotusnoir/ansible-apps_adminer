@@ -1,6 +1,5 @@
 ---
-adminer_version: '4.7.8'
-adminer_src_url: 'https://github.com/vrana/adminer/releases/download/v{{ adminer_version }}/adminer-{{ adminer_version }}.php'
+adminer_version: '4.8.0'
 adminer_owner: www-data
 adminer_group: www-data
 adminer_install_dir:  "/var/www/adminer/"

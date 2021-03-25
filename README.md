@@ -24,7 +24,7 @@ You need to install and configure a web server like nginx / apache.
 
 | Name                  | Default Value     | Description                 |
 | --------------------- | ----------------- | ----------------------------|
-| `adminer_version`     | 4.7.8             | adminer version             |
+| `adminer_version`     | 4.8.0             | adminer version             |
 | `adminer_owner`       | www-data          | owner for adminer files     |
 | `adminer_group`       | www-data          | group for adminer files     |
 | `adminer_install_dir` | /var/www/adminer/ | install directory           |
