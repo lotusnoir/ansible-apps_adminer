@@ -2,4 +2,4 @@
 adminer_version: "4.8.0"
 adminer_owner: www-data
 adminer_group: www-data
-adminer_install_dir:  "/var/www/adminer"
+adminer_install_dir: "/var/www/adminer"
