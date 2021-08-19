@@ -6,7 +6,11 @@
   register: adminer_install
 
 - name: "Get current version"
-  shell: /usr/bin/grep @version {{ adminer_install_dir}}/index.php | awk '{print $NF}'
+  shell: |
+    set -o pipefail
+    /usr/bin/grep @version {{ adminer_install_dir }}/index.php | awk '{print $NF}'
+  args:
+    executable: /bin/bash
   changed_when: false
   register: adminer_install_version
   when: adminer_install.stat.exists
