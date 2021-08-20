@@ -8,7 +8,7 @@
 - name: "Get current version"
   shell: |
     set -o pipefail
-    /usr/bin/grep @version {{ adminer_install_dir }}/index.php | awk '{print $NF}'
+    grep @version {{ adminer_install_dir }}/index.php | awk '{print $NF}'
   args:
     executable: /bin/bash
   changed_when: false
