@@ -1,0 +1,8 @@
+---
+adminer_packages:
+  - ca-certificates
+  - php-fpm
+  - php-mysqlnd
+  - php-pgsql
+adminer_owner: nginx
+adminer_group: nginx

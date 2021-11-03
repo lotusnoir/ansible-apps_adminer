@@ -5,4 +5,4 @@
   any_errors_fatal: true
 
   roles:
-    - role: apps_adminer
+    - role: ansible-apps_adminer

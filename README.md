@@ -30,15 +30,15 @@ You need to install and configure a web server like nginx / apache.
 
 	---
 	- hosts: apps_adminer
-	  become: yes
+	  become: true
 	  become_method: sudo
-	  gather_facts: yes
+	  gather_facts: true
 	  roles:
 	    - role: ansible-apps_adminer
 	  environment: 
 	    http_proxy: "{{ http_proxy }}"
 	    https_proxy: "{{ https_proxy }}"
-	    no_proxy: "{{ no_proxy }}
+	    no_proxy: "{{ no_proxy }}"
 
 ## License
 
