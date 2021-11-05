@@ -25,113 +25,113 @@ ansible-lint:
   script:
     - ansible-lint .
 
-######################################################
-# RUN ROLE ON DIFFERENTS OS
-######################################################
-centos7:
-  stage: test
-  needs:
-    - yamllint
-    - ansible-lint
-  image:
-    name: lotusnoir/ansible_molecule_test_images:centos7
-    entrypoint: [""]
-  before_script:
-    - ansible --version
-  script:
-    - ansible-galaxy install -r requirements.yml
-    - cd ..
-    - ansible-playbook ansible-apps_adminer/playbook.yml
-
-centos8:
-  stage: test
-  needs:
-    - yamllint
-    - ansible-lint
-  image:
-    name: lotusnoir/ansible_molecule_test_images:centos8
-    entrypoint: [""]
-  before_script:
-    - ansible --version
-  script:
-    - ansible-galaxy install -r requirements.yml
-    - cd ..
-    - ansible-playbook ansible-apps_adminer/playbook.yml
-
-debian10:
-  stage: test
-  needs:
-    - yamllint
-    - ansible-lint
-  image:
-    name: lotusnoir/ansible_molecule_test_images:debian10
-    entrypoint: [""]
-  before_script:
-    - ansible --version
-  script:
-    - ansible-galaxy install -r requirements.yml
-    - cd ..
-    - ansible-playbook ansible-apps_adminer/playbook.yml
-
-debian11:
-  stage: test
-  needs:
-    - yamllint
-    - ansible-lint
-  image:
-    name: lotusnoir/ansible_molecule_test_images:debian11
-    entrypoint: [""]
-  before_script:
-    - ansible --version
-  script:
-    - ansible-galaxy install -r requirements.yml
-    - cd ..
-    - ansible-playbook ansible-apps_adminer/playbook.yml
-
-rocky8:
-  stage: test
-  needs:
-    - yamllint
-    - ansible-lint
-  image:
-    name: lotusnoir/ansible_molecule_test_images:rocky8
-    entrypoint: [""]
-  before_script:
-    - ansible --version
-  script:
-    - ansible-galaxy install -r requirements.yml
-    - cd ..
-    - ansible-playbook ansible-apps_adminer/playbook.yml
-
-ubuntu18:
-  stage: test
-  needs:
-    - yamllint
-    - ansible-lint
-  image:
-    name: lotusnoir/ansible_molecule_test_images:ubuntu18
-    entrypoint: [""]
-  before_script:
-    - ansible --version
-  script:
-    - ansible-galaxy install -r requirements.yml
-    - cd ..
-    - ansible-playbook ansible-apps_adminer/playbook.yml
-
-ubuntu20:
-  stage: test
-  needs:
-    - yamllint
-    - ansible-lint
-  image:
-    name: lotusnoir/ansible_molecule_test_images:ubuntu20
-    entrypoint: [""]
-  before_script:
-    - ansible --version
-  script:
-    - ansible-galaxy install -r requirements.yml
-    - cd ..
-    - ansible-playbook ansible-apps_adminer/playbook.yml
+#######################################################
+## RUN ROLE ON DIFFERENTS OS (dont work cause systemd not pid1 on gitlab-runenr)
+#######################################################
+#centos7:
+#  stage: test
+#  needs:
+#    - yamllint
+#    - ansible-lint
+#  image:
+#    name: lotusnoir/ansible_molecule_test_images:centos7
+#    entrypoint: [""]
+#  before_script:
+#    - ansible --version
+#  script:
+#    - ansible-galaxy install -r requirements.yml
+#    - cd ..
+#    - ansible-playbook ansible-apps_adminer/playbook.yml
+#
+#centos8:
+#  stage: test
+#  needs:
+#    - yamllint
+#    - ansible-lint
+#  image:
+#    name: lotusnoir/ansible_molecule_test_images:centos8
+#    entrypoint: [""]
+#  before_script:
+#    - ansible --version
+#  script:
+#    - ansible-galaxy install -r requirements.yml
+#    - cd ..
+#    - ansible-playbook ansible-apps_adminer/playbook.yml
+#
+#debian10:
+#  stage: test
+#  needs:
+#    - yamllint
+#    - ansible-lint
+#  image:
+#    name: lotusnoir/ansible_molecule_test_images:debian10
+#    entrypoint: [""]
+#  before_script:
+#    - ansible --version
+#  script:
+#    - ansible-galaxy install -r requirements.yml
+#    - cd ..
+#    - ansible-playbook ansible-apps_adminer/playbook.yml
+#
+#debian11:
+#  stage: test
+#  needs:
+#    - yamllint
+#    - ansible-lint
+#  image:
+#    name: lotusnoir/ansible_molecule_test_images:debian11
+#    entrypoint: [""]
+#  before_script:
+#    - ansible --version
+#  script:
+#    - ansible-galaxy install -r requirements.yml
+#    - cd ..
+#    - ansible-playbook ansible-apps_adminer/playbook.yml
+#
+#rocky8:
+#  stage: test
+#  needs:
+#    - yamllint
+#    - ansible-lint
+#  image:
+#    name: lotusnoir/ansible_molecule_test_images:rocky8
+#    entrypoint: [""]
+#  before_script:
+#    - ansible --version
+#  script:
+#    - ansible-galaxy install -r requirements.yml
+#    - cd ..
+#    - ansible-playbook ansible-apps_adminer/playbook.yml
+#
+#ubuntu18:
+#  stage: test
+#  needs:
+#    - yamllint
+#    - ansible-lint
+#  image:
+#    name: lotusnoir/ansible_molecule_test_images:ubuntu18
+#    entrypoint: [""]
+#  before_script:
+#    - ansible --version
+#  script:
+#    - ansible-galaxy install -r requirements.yml
+#    - cd ..
+#    - ansible-playbook ansible-apps_adminer/playbook.yml
+#
+#ubuntu20:
+#  stage: test
+#  needs:
+#    - yamllint
+#    - ansible-lint
+#  image:
+#    name: lotusnoir/ansible_molecule_test_images:ubuntu20
+#    entrypoint: [""]
+#  before_script:
+#    - ansible --version
+#  script:
+#    - ansible-galaxy install -r requirements.yml
+#    - cd ..
+#    - ansible-playbook ansible-apps_adminer/playbook.yml
 
 
 ######################################################
@@ -139,15 +139,14 @@ ubuntu20:
 ######################################################
 molecule:
   stage: test
-  needs:
-    - centos7
-    - centos8
-    - debian10
-    - debian11
-    - rocky8
-    - ubuntu18
-    - ubuntu20
   image: lotusnoir/molecule_play
+  services:
+    - docker:dind
+  variables:
+    PY_COLORS: 1
+  needs:
+    - yamllint
+    - ansible-lint
   before_script:
     - molecule --version
   script:
