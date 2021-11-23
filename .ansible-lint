@@ -2,4 +2,3 @@
 skip_list:
   - '106'
   - '401'
-  - 'role-name'
