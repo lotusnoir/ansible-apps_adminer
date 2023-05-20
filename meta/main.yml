@@ -14,11 +14,8 @@ galaxy_info:
         - "jammy"
     - name: "Debian"
       versions:
-        - "bullseye"
         - "buster"
-    - name: "RedHat"
-      versions:
-        - "Maipo"
+        - "bullseye"
     - name: "CentOS"
       versions:
         - "7"
