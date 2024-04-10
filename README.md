@@ -24,7 +24,7 @@
 Deploy [adminer](https://github.com/vrana/adminer) a simple web administration tool for database.
 ## Requirements
 
-none
+You need to install and configure a web server like nginx / apache.
 
 ## Role variables
 
