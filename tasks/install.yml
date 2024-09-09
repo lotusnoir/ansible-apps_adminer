@@ -32,7 +32,7 @@
         state: directory
         owner: '{{ adminer_owner }}'
         group: '{{ adminer_group }}'
-        mode: 0755
+        mode: '0755'
 
     - name: "Download adminer files"
       ansible.builtin.get_url:
@@ -40,7 +40,7 @@
         dest: '{{ adminer_install_dir }}/index.php'
         owner: '{{ adminer_owner }}'
         group: '{{ adminer_group }}'
-        mode: 0766
+        mode: '0766'
 
 - name: "Download Adminer theme"
   ansible.builtin.get_url:
@@ -49,6 +49,6 @@
     owner: '{{ adminer_owner }}'
     group: '{{ adminer_group }}'
     force: true
-    mode: 0644
+    mode: '0644'
     timeout: 60
   when: adminer_theme|length>0
