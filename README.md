@@ -22,9 +22,10 @@
 ## Description
 
 Deploy [adminer](https://github.com/vrana/adminer) a simple web administration tool for database.
+
 ## Requirements
 
-You need to install and configure a web server like nginx / apache.
+['geerlingguy.nginx']
 
 ## Role variables
 
@@ -39,7 +40,6 @@ See [variables](/defaults/main.yml) for more details.
           gather_facts: true
           roles:
             - role: ansible-apps_adminer
-
 
 ## License
 
